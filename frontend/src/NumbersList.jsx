@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './NumbersList.css';
-import PropTypes from 'prop-types';
 
-function NumbersList({numbers}) {
- 
+
+function NumbersList() {
+  const [numbers, setNumbers] = useState([]);
+
+  const fetchNumbers = async () => {
+    const response = await fetch('http://localhost:5000/api/numbers');
+    const data = await response.json();
+    setNumbers(data);
+  };
+
+ useEffect(() => {
+    fetchNumbers();
+  }, []);
+
   return (
     <ul className="numbers-list">
       {numbers.map(number => (
