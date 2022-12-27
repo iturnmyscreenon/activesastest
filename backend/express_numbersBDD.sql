@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS express_numbersBDD;
+USE express_numbersBDD;
+
 DROP TABLE IF EXISTS numbers;
 
 CREATE TABLE numbers (

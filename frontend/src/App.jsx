@@ -1,16 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Form from './Form';
-import NumbersList from './NumbersList';
+import Form from './components/Form';
+import NumbersList from './components/NumbersList';
 import './App.css';
+import { ApiContextProvider } from './contexts/ApiContext';
 
 
 function App() {
   return (
     <div className="App">
       <h1>ACTIVE SAS</h1>
-      <Form />
-      <NumbersList />
+      <ApiContextProvider>
+        <Form />
+        <NumbersList />
+      </ApiContextProvider>
     </div>
   );
 }
